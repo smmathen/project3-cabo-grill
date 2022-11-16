@@ -48,6 +48,7 @@ app.post("/userAuth", async (req, res) => {
   }
 })
 
-app.listen(8800, () => {
-  console.log("Server has started on port 5000");
+const port = process.env.PORT;
+app.listen(port, () => {
+  console.log(`Server has started on port ${port}`);
 });

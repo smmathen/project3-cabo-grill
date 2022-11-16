@@ -34,7 +34,7 @@ const Menu = () => {
   const getMenuUser = async () => {
     try {
       //   console.log("howdy");
-      const response = await fetch("http://localhost:8800/menuUser");
+      const response = await fetch("http://localhost:3001/menuUser");
       const jsonData = await response.json();
       setMenuUser(jsonData);
     } catch (error) {

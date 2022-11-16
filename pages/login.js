@@ -9,7 +9,7 @@ export default function Login() {
     const authUser = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch("http://localhost:8800/userAuth", {
+            const response = await fetch("http://localhost:3001/userAuth", {
                 method: "POST",
                 headers: {
                     'Accept': 'application/json',
