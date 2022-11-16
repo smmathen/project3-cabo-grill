@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import Seo from "./Seo";
-import MAP_KEY from "./secrets";
+import MAP_KEY from "../secrets";
 
 console.log("HOWDY THE KEY IS " + MAP_KEY);
 const Map = () => {
