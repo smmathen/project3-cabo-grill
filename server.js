@@ -48,7 +48,7 @@ app.post("/userAuth", async (req, res) => {
   }
 })
 
-const port = process.env.PORT;
-app.listen(port, () => {
-  console.log(`Server has started on port ${port}`);
+
+app.listen(3001, () => {
+  console.log(`Server has started on port 3001`);
 });
