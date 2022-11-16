@@ -1,0 +1,17 @@
+11/7/2022 - During Lab
+
+- Kavya made a server page with buttons that show the different menu items.
+- Kavya plans on working on making two tabs so that we can create the current order.
+- There is still a bit of a learning curve to make sure that we can get everything we want to show.
+
+- Nicholus made some components for the manager. He also set up some of the pages for the manager. 
+- He made his own query for his menu list, so he is trying to understand what is displaying so he can parse it. He wants to easily make components that the manager can use for their tasks.
+- He still isn't very comfortable with Javascript and HTML so he is learning, he is also currently out of internet at home so he has been trying to work around that.
+
+- Shawn has been working on some of the project manager stuff to make sure it is ready for the tuesday deadline. He has also created the menu page and fixed some of the hydration errors to make it show in the HTML.
+- He plans on improving the connection to the database to make it work on a single port, but also see if he can help with more of the SQL queries.
+- He is also trying to figure out how React works and making his ideas turn into code.
+
+- Soohwan worked on the overall frontend of the home page, login page, and the navbar. He created some of the connections that go in between pages on the navbar.
+- He wants to implement that authentication for the login page so that the employees can log in with their pin number.
+- It is his first time using Node.js and Express.js, so he wants to learn it to use. He also wants to change the favicon from the default Vercel one but for some reason it hasn't been working as intended.
