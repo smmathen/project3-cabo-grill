@@ -17,7 +17,7 @@ export default function Home() {
           <h1 className={imageContainerTextClass}>Tacos & Seafood</h1>
         </div>
       <h2 className="lead fw-normal">Cause we make the best mexican food in town, that's why!</h2>
-      <p className="lead fw-normal">Because we make the best mexicanfood, seafood and drinks in town, that's why.</p>
+      <p className="lead fw-normal">Because we make the best mexican food, seafood and drinks in town, that's why.</p>
       <p className="lead fw-normal">Cabo Grill uses the highest quality ingridients to achieve an authentic mexican taste.  We really appreciate your preference, you are part of our family. Serving you is our pleasure! Just Cabo.</p>
       <a className="btn btn-outline-secondary" href="#">Coming soon</a>
       </div>

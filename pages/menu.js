@@ -2,6 +2,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import MenuItem from "../components/MenuItem";
 import Seo from "../components/Seo";
+import Userui from "../components/Userui"
 // const Pool = require("pg").Pool;
 // const dotenv = require("dotenv").config();
 
@@ -29,50 +30,56 @@ import Seo from "../components/Seo";
 // };
 
 const Menu = () => {
-  const [menuUser, setMenuUser] = useState([]);
+  // const [menuUser, setMenuUser] = useState([]);
 
-  const getMenuUser = async () => {
-    try {
-      //   console.log("howdy");
-      const response = await fetch("http://localhost:3001/menuUser");
-      const jsonData = await response.json();
-      setMenuUser(jsonData);
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
-  useEffect(() => {
-    getMenuUser();
-  }, []);
+  // const getMenuUser = async () => {
+  //   try {
+  //     //   console.log("howdy");
+  //     const response = await fetch("http://localhost:3001/menuUser");
+  //     const jsonData = await response.json();
+  //     setMenuUser(jsonData);
+  //   } catch (error) {
+  //     console.log(error.message);
+  //   }
+  // };
+  // useEffect(() => {
+  //   getMenuUser();
+  // }, []);
 
   return (
+    // <Fragment>
+    //   {" "}
+    //   <Seo />
+    //   <ul className="list-group list-group-horizontal-xl">
+    //     <li className="list-group-item">Name</li>
+    //     <li className="list-group-item">Ingredients</li>
+    //     <li className="list-group-item">Price</li>
+    //   </ul>
+    //   <table className="table mt-5 border-separate p-8 text-center">
+    //     <tbody>
+    //       {/*
+    //         <tr>
+    //         <td>John</td>
+    //         <td>Doe</td>
+    //         <td>john@example.com</td>
+    //       </tr> */}
+    //       {menuUser.map((menu) => (
+    //         <MenuItem
+    //           key={menu.name}
+    //           name={menu.name}
+    //           ingredients={menu.ingredients}
+    //           price={menu.price}
+    //         ></MenuItem>
+    //       ))}
+    //     </tbody>
+    //   </table>
+    // </Fragment>
     <Fragment>
       {" "}
-      <Seo/>
-      <ul className="list-group list-group-horizontal-xl">
-        <li className="list-group-item">Name</li>
-        <li className="list-group-item">Ingredients</li>
-        <li className="list-group-item">Price</li>
-      </ul>
-      <table className="table mt-5 border-separate p-8 text-center">
-        <tbody>
-          {/*
-            <tr>
-            <td>John</td>
-            <td>Doe</td>
-            <td>john@example.com</td>
-          </tr> */}
-          {menuUser.map((menu) => (
-            <MenuItem
-              key={menu.name}
-              name={menu.name}
-              ingredients={menu.ingredients}
-              price={menu.price}
-            ></MenuItem>
-          ))}
-        </tbody>
-      </table>
+      <Seo />
+      <Userui />
     </Fragment>
+
   );
 };
 
