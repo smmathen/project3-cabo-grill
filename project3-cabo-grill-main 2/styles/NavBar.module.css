@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    justify-content:space-around;
+    margin: 0 15vw;
+    margin-top: 4vh;
+    font-size: 2vh;
+}
+
+.navBtn {
+    text-decoration: none;
+    color: red;
+}
+
+.navBtn:hover {
+    color: rgb(168, 223, 235);
+    transition: all 0.5s;
+}
+
+.active {
+    text-decoration: none;
+    color: black;
+}
+    
+
+

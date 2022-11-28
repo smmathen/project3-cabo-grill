@@ -1,0 +1,15 @@
+- Kavya worked on showing the menu price on the order reciept when an order is being completed. She also changed a bit of the UI to show prices because it previously didn't work with the display.
+- She plans on working on the functionality of the buttons so that clicking them affects the database and can effectively create the order.
+- For blockers, there is a still a significant blocker in learning how to develop a UI in JavaScript.
+
+- For Nicholus, he worked more so towards the mid-project independent status report, but also made some minor upgrades in the project in terms of the manager side.
+- He plans on working on the end of sprint materials document and also finishing his part to have an MVP for sprint 2.
+- For blockers, he has an on campus job that is interfering with the time it takes to work on this project. Because both have a big time commitment, there are concerns about what gets done.
+
+- For Shawn, he helped Kavya create the buttons for the server-side order menu by pulling the information from the database and displaying as buttons on the screen. He also worked on the sprint materials document.
+- He wants to complete the sprint materials document since that is more important for the end of the sprint. He also wants to contribute around the team as they need.
+- As the team gets more into the project, he has realized some of the points distributions are a bit inaccurate than they were assumed to be at the beginning of the project. He needs to fix this to appropriately show sprint progress.
+
+- Soohwan mainly researched different functions such as rewrites and redirects to implement redirection based on what the log-in status is.
+- Since he didn't get to figure it out just yet, Soohwan wants to continue to figure out how the redirection of the web pages works.
+- The function not currently working is his biggest blocker becuase it is important to make sure that the logged in user has a different experience than those who aren't.

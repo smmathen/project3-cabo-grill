@@ -1,0 +1,15 @@
+- Soohwan worked on the redirection after a user logs in. He added the order menu items to the list, being able to remove it, and being able to submit it to the database. 
+- He wants to figure out OAuth with the Google API since that is a requirement.
+- His blockes are with authorization since he already has one working with the database, it is difficult to have OAuth working on top of that.
+
+- Kavya worked on the server menu and worked a bit with Google Translate to continue making progress in those fields.
+- Today she wants to finish up getting credentials for Google Translate in order to implement it in our website.
+- There are not any blockers at the moment for Kavya.
+
+- Nicholus has been trying to update his branch with main since he did a lot of the manager related items, so he wants to start merging everything together.
+- He wants to fix the branch so that he can have all necessary items ready for main.
+- One of his blockers is that there has been significant changes to the main branch and his own, so he is trying to fix the conflicts.
+
+- Shawn worked a bit on fixing up the Google Maps API and working more on how the UI looked for the location screen.
+- He wants to work with the Google Translate API to add that functionality to the website and improve the user experience. He also wants to add the User order menu.
+- Since the order screen was added specifically for the server side, he is trying to convert it to a user side without having database conflicts

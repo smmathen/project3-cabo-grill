@@ -1,0 +1,17 @@
+11/4/2022 - During Lab
+
+- Nicholus starts the standup by asking us what we did yesterday. Soowhan created the app.js and layout.js to fix the navbar at the top of any page you go to. He made good changes to make sure that only navbar refreshed when moving to a new page.
+- Soohwan today wants to figure out how to make css work in NextJS, and ultiately complete implementing the navbar with the functions.
+- He has a blocker working with css in a javascript file.
+
+- Nicholus has been trying to learn Javascript to become more comfortable, and get used to how React is just HTML in javascript since it is new.
+- He wants to get more comfortable with how we are implementing our project and get everything assigned to get the ball moving.
+- There are github issues that he is running into so he is trying to work on fixing that so he can start coding.
+
+- Shawn tried to create a connection from the backend to the frontend. 
+- He is having an issue since the current method relies on two ports to connect to the database, but he thinks this will be an issue when we try to host the application and deploy it.
+- Today he wants to figure out how to call from the database comfortably in one port and then work on some of the scrum master tasks.
+
+- Kavya has pulled from the github to understand current changes and learn how to use javascript and react to create our project. 
+- She wants to divide tasks and convert the manager and server files from Java to Javascript to get the backend working.
+- So far no severe blockers. 
