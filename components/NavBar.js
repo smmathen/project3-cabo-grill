@@ -19,12 +19,10 @@ export default function NavBar() {
                 <Link href="/location" className={router.pathname === "/location" ? styles.active : styles.navBtn}>
                     LOCATION
                 </Link>
-                <Link href="/login" className={router.pathname === "/login" ? styles.active : styles.navBtn}>
-                    LOGIN
+                <Link href="/auth" className={router.pathname === "/auth" ? styles.active : styles.navBtn}>
+                    EMPLOYEE
                 </Link>
-                <Link href="/serverui" className={router.pathname === "/serverui" ? styles.active : styles.navBtn}>
-                    SERVER
-                </Link>
+
             </div>
             <style jsx>{`
                 nav {
