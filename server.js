@@ -77,7 +77,7 @@ app.post("/submitOrder", async (req, res) => {
 app.get("/menuOrder", async (req, res) => {
   try {
     const allMenu = await pool.query(
-      "SELECT name, price FROM menu"
+      "SELECT name, price FROM menu;"
     );
     res.json(allMenu.rows);
   } catch (err) {
@@ -86,7 +86,7 @@ app.get("/menuOrder", async (req, res) => {
 })
 
 
-const port = process.env.SERVER_PORT;
+const port = process.env.PORT || 3001;
 app.listen(port, () => {
   console.log(`Server has started on port ${port}`);
 });
