@@ -8,6 +8,7 @@ const STORAGE_KEY = "@user";
 const STORAGE_PINKEY = "@pin";
 
 export default function Login() {
+    const router = useRouter();
     const [user, setUser] = useState("null");
     const [role, setRole] = useState("guest");
     const [auth, setAuth] = useState(false);
@@ -16,7 +17,7 @@ export default function Login() {
     const authUser = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch("http://localhost:3001/userAuth", {
+            const response = await fetch("https://project3-backend.onrender.com/userAuth", {
                 method: "POST",
                 headers: {
                     'Accept': 'application/json',
@@ -37,6 +38,7 @@ export default function Login() {
                     }
                 });
 
+            router.push("/auth");
         } catch (error) {
             console.log(error.message);
         }

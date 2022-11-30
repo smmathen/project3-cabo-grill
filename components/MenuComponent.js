@@ -33,7 +33,7 @@ const Menu = () => {
   const getMenuUser = async () => {
     try {
       //   console.log("howdy");
-      const response = await fetch("http://localhost:3001/menuUser");
+      const response = await fetch("https://project3-backend.onrender.com/menuUser");
       const jsonData = await response.json();
       setMenuUser(jsonData);
     } catch (error) {
