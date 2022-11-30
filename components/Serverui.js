@@ -2,7 +2,6 @@ import React, { Fragment, useEffect, useState } from "react";
 import Seo from '../components/Seo';
 import styles from "../styles/serverui.module.css";
 import OrderMenu from '../components/OrderMenu';
-import Logout from "./Logout";
 
 const ORDER_LIST_KEY = "@orderList";
 const TOTAL_PRICE_KEY = "@totalPrice";
@@ -111,18 +110,10 @@ const serverui = () => {
         <div className="bg-secondary bg.gradient p-3">
           {Object.keys(orderList).map(key => <div className="d-flex flex-row"><h5 className="text-white ml-5">{orderList[key]["name"]}</h5><div key={key} onClick={deleteOrder} className={[key, orderList[key]["price"]]}>x</div></div>)}
         </div>
-
-        <div className="mx-3">
-          <h1 className="text-nowrap">Order List</h1>
-          <div className="bg-secondary bg.gradient p-3">
-            {Object.keys(orderList).map(key => <h5 className="text-white">{orderList[key]["name"]}</h5>)}
-          </div>
-          <div className="d-flex flex-row align-items-end justify-content-between">
-            <div>Price: ${totalPrice}</div>
-            <button className="btn bg-danger bg-gradient text-white">Order</button>
-            <button className="btn bg-danger bg-gradient text-white" onClick={clearList}>Clear All</button>
-          </div>
-          <Logout />
+        <div className="d-flex flex-row align-items-end justify-content-between">
+          <div>Price: ${totalPrice}</div>
+          <button className="btn bg-danger bg-gradient text-white" onClick={submitOrder}>Order</button>
+          <button className="btn bg-danger bg-gradient text-white" onClick={clearList}>Clear All</button>
         </div>
       </div>
     </div>

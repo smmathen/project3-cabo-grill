@@ -127,7 +127,6 @@ const Userui = () => {
         </div>
     );
 };
-
 export default Userui;
 
 export function getServerSideProps({ params: { params } }) {

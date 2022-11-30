@@ -1,16 +1,8 @@
-import { useRouter } from "next/router";
-
 const STORAGE_KEY = "@user";
-const ORDER_LIST_KEY = "@orderList";
-const TOTAL_PRICE_KEY = "@totalPrice";
 
 export default function Logout() {
     const logout = () => {
-        const router = useRouter();
         localStorage.removeItem(STORAGE_KEY);
-        localStorage.removeItem(ORDER_LIST_KEY);
-        localStorage.removeItem(TOTAL_PRICE_KEY);
-        router.push(`/auth`);
     }
     return (
         <>
