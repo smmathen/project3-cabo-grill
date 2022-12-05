@@ -1,11 +1,13 @@
-
 import { useEffect, useState } from "react";
 import Seo from "./Seo";
 import styles from "../styles/login.module.css";
 import { useRouter } from "next/router";
+import jwt_decode from "jwt-decode";
+
 
 const STORAGE_KEY = "@user";
 const STORAGE_PINKEY = "@pin";
+const clientId = "163203061075-th8790psc1e625eqm27l96uiag8p3ocf.apps.googleusercontent.com";
 
 export default function Login() {
     const router = useRouter();
@@ -65,8 +67,28 @@ export default function Login() {
         }
     }
 
+    const handleCallbackResponse = (res) => {
+        let userObject = jwt_decode(res.credential);
+        setUser(userObject.name);
+        setRole("google-account");
+        setPinNum("99999");
+        setAuth(true);
+        const loginInfo = { "name": userObject.name, "role": "google-account" };
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(loginInfo));
+        localStorage.setItem(STORAGE_PINKEY, JSON.stringify("99999"));
+        router.push("/auth");
+    }
+
     useEffect(() => {
         loadUser();
+        google.accounts.id.initialize({
+            client_id: clientId,
+            callback: handleCallbackResponse
+        });
+        google.accounts.id.renderButton(
+            document.getElementById("signInDiv"),
+            { theme: "outline", size:"large" }
+        );
     }, [])
 
     return (
@@ -86,6 +108,7 @@ export default function Login() {
                             <input className={styles.loginInput} onChange={e => setPinNum(e.currentTarget.value)} value={pinNum} placeholder="PIN Number" type="password" required={true} />
                             <button className={styles.loginButton} onClick={authUser} >Log in</button>
                         </form>
+                        <div id="signInDiv"></div>
                     </div>
 
                 </div>

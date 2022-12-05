@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Router, { useRouter } from "next/router";
 import styles from "../styles/NavBar.module.css";
+import Translate from "../pages/translate";
 
 export default function NavBar() {
 
@@ -13,17 +14,23 @@ export default function NavBar() {
                 <Link href="/" className={router.pathname === "/" ? styles.active : styles.navBtn}>
                     HOME
                 </Link>
+                
                 <Link href="/menu" className={router.pathname === "/menu" ? styles.active : styles.navBtn}>
                     MENU
                 </Link>
+
                 <Link href="/location" className={router.pathname === "/location" ? styles.active : styles.navBtn}>
                     LOCATION
                 </Link>
+
                 <Link href="/auth" className={router.pathname === "/auth" ? styles.active : styles.navBtn}>
                     EMPLOYEE
                 </Link>
 
+                <Translate />
             </div>
+
+
             <style jsx>{`
                 nav {
                     margin: 1rem 0;
