@@ -28,7 +28,14 @@ import Userui from "../components/Userui"
 //     );
 //   });
 // };
+/**
+* @swagger
+* Menu:
+*   post:
+*     description: displays the menu/order screen to the user
+*     summary: Displays the menu/order screen to the user to make an order
 
+*/
 const Menu = () => {
   // const [menuUser, setMenuUser] = useState([]);
 

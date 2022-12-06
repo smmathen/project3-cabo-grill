@@ -2,33 +2,47 @@
 // import styles from '../styles/Home.module.css'
 import React, { useContext, useEffect } from 'react'
 
+/**
+* @swagger
+* Translate:
+*   put:
+*     description: Allows user to change language of screen
+*     summary: Allows the user to customize their experience by changing language
+*/
 export default function Translate() {
 
-    useEffect(() => {
-        var addScript = document.createElement('script');
-        addScript.setAttribute('src', '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit');
-        document.body.appendChild(addScript);
-        window.googleTranslateElementInit = googleTranslateElementInit;
-    }, [])
+  useEffect(() => {
+    var addScript = document.createElement('script');
+    addScript.setAttribute('src', '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit');
+    document.body.appendChild(addScript);
+    window.googleTranslateElementInit = googleTranslateElementInit;
+  }, [])
 
-    const googleTranslateElementInit = () => {
+  /**
+* @swagger
+* googleTranslateElementInit:
+*   delete:
+*     description: Initializes Google Translate languages
+*     summary: Initializes Google Translate languages
+*/
+  const googleTranslateElementInit = () => {
 
-        new window.google.translate.TranslateElement({
-            pageLanguage: 'en',
-            includedLanguages : "af,ach,ak,am,ar,az,be,bem,bg,bh,bn,br,bs,ca,chr,ckb,co,crs,cs,cy,da,de,ee,el,en,eo,es,es-419,et,eu,fa,fi,fo,fr,fy,ga,gaa,gd,gl,gn,gu,ha,haw,hi,hr,ht,hu,hy,ia,id,ig,is,it,iw,ja,jw,ka,kg,kk,km,kn,ko,kri,ku,ky,la,lg,ln,lo,loz,lt,lua,lv,mfe,mg,mi,mk,ml,mn,mo,mr,ms,mt,ne,nl,nn,no,nso,ny,nyn,oc,om,or,pa,pcm,pl,ps,pt-BR,pt-PT,qu,rm,rn,ro,ru,rw,sd,sh,si,sk,sl,sn,so,sq,sr,sr-ME,st,su,sv,sw,ta,te,tg,th,ti,tk,tl,tn,to,tr,tt,tum,tw,ug,uk,ur,uz,vi,wo,xh,xx-bork,xx-elmer,xx-hacker,xx-klingon,xx-pirate,yi,yo,zh-CN,zh-TW,zu", // include this for selected languages
-            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-        },
-        'google_translate_element');
+    new window.google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: "af,ach,ak,am,ar,az,be,bem,bg,bh,bn,br,bs,ca,chr,ckb,co,crs,cs,cy,da,de,ee,el,en,eo,es,es-419,et,eu,fa,fi,fo,fr,fy,ga,gaa,gd,gl,gn,gu,ha,haw,hi,hr,ht,hu,hy,ia,id,ig,is,it,iw,ja,jw,ka,kg,kk,km,kn,ko,kri,ku,ky,la,lg,ln,lo,loz,lt,lua,lv,mfe,mg,mi,mk,ml,mn,mo,mr,ms,mt,ne,nl,nn,no,nso,ny,nyn,oc,om,or,pa,pcm,pl,ps,pt-BR,pt-PT,qu,rm,rn,ro,ru,rw,sd,sh,si,sk,sl,sn,so,sq,sr,sr-ME,st,su,sv,sw,ta,te,tg,th,ti,tk,tl,tn,to,tr,tt,tum,tw,ug,uk,ur,uz,vi,wo,xh,xx-bork,xx-elmer,xx-hacker,xx-klingon,xx-pirate,yi,yo,zh-CN,zh-TW,zu", // include this for selected languages
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    },
+      'google_translate_element');
 
-    }
+  }
 
-    return (
-        <div /*className={styles.container}*/>
+  return (
+    <div /*className={styles.container}*/>
 
-            <div id="google_translate_element" > </div>
+      <div id="google_translate_element" > </div>
 
-        </div>
-    )
+    </div>
+  )
 }
 
 
