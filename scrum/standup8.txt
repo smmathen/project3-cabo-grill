@@ -1,0 +1,15 @@
+- Nicholus was able to make his branch work with the main to make it all work again. 
+- He is going to work on the manager branch, and he is going to prioritize the things he thought is more important. He wants to focus on getting the important stuff done.
+- Blocker is that there is still significant issues with GitHub, which has led to a bit of an unexpected delay in his part.
+
+- Soohwan has started to learn Google OAuth and figured out how to redirect from our page to the Google page.
+- Today he is going to try to implement this redirection based on what he has learned. 
+- The concept of using the Google API is still a bit hard, so he is working on that.
+
+- Kavya has been trying to fix and add Google Translate API to our codebase. 
+- Kavya is planning to finish the Google Translate today to knock that off of our list.
+- Her main blockers is that there have been some dependency issues with the Google Cloud, and there is a learning curve to using the API.
+
+- Shawn has been working on fixing deployment because it was discovered that the deployment wasn't working as intended. 
+- Now, the backend server information isn't being deployed on Render correctly, so he is trying to make a new site to redirect all of the information from.
+- His main blocker is figuring out what information needs to be hosted separately to make the backend work correctly.

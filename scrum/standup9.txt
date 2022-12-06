@@ -1,0 +1,16 @@
+- Soohwan was able to successfully render a Google Login and a logout button with the purpose of authentication. For this, it redirects the user to the google log in page, which is good with OAuth.
+- He plans on working on the functions that appear after a user either logs in or logs out. This is so that they can get access to the manager or server page as needed. This is also mostly done.
+- He is having a blocker with our old authentication system, as he wants to make it where they can either log in with their Google account or the pin number that is stored in the database.
+
+- Kavya was able to completely finish the Google Translate API related tasks and it is now able to be placed and translate on every page. 
+- Her plan is to help complete some of the written documents and also help rewrite some of the report queries from the previous project.
+- The main blocker, especially with the latter of her goals, is how to convert everything necessary from Java to Javascript without it taking an egregious amount of time.
+
+- Nicholus has added the functionality to edit, add, delete, and remove employees. He has also worked on the similar functionality for the menu items and inventory items.
+- His main goal today is to extend this functionality completely to the menu items and the orders for the manager to be able to do.
+- Similarly to Kavya, the learning curve for Javascript has been more difficult to surpass once we got to the more difficult functions in Javascript. 
+
+- Shawn worked on the project deployment, which now completely works without having to interfere with Render's local host. He was also able to add more functionality to the Google Map's API.
+- His main goal today is to help add the reports and convert the previous Java code into Javascript.
+- His main blockers are trying to get things to render in a relatively appealing way after getting the information from the database.
+
