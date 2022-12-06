@@ -8,7 +8,15 @@ import jwt_decode from "jwt-decode";
 const STORAGE_KEY = "@user";
 const STORAGE_PINKEY = "@pin";
 const clientId = "163203061075-th8790psc1e625eqm27l96uiag8p3ocf.apps.googleusercontent.com";
-
+/**
+ * @swagger
+ * Login:
+ *   post:
+ *     description: Attempts to log the user in via their credentials.
+ *     summary: Returns a login page for the user and stores information in local storage if succesful
+ *          
+ *      
+ */
 export default function Login() {
     const router = useRouter();
     const [user, setUser] = useState("null");
@@ -46,6 +54,16 @@ export default function Login() {
         }
     }
 
+    /**
+     * @swagger
+     * saveUser:
+     *   post:
+     *     description: Stores users credentials in local storage if logged in successfully.
+     *     summary: Returns true if the user logs in successfully.   
+     *     parameters:
+     *      - name: userInfo
+     *        description: contains all information about the user that needs to be stored in local storage 
+     */
     const saveUser = (userInfo) => {
         const s = JSON.stringify(userInfo);
         const p = JSON.stringify(pinNum);
@@ -54,6 +72,14 @@ export default function Login() {
         setAuth(true);
     }
 
+    //get all Staff
+    /**
+     * @swagger
+     * loadUser:
+     *   get:
+     *     description: Gets user information if they are stored in local storage.
+     *     summary: Returns true or false based on if the user exists in local storage.
+     */
     const loadUser = () => {
         const s = localStorage.getItem(STORAGE_KEY);
         const p = localStorage.getItem(STORAGE_PINKEY);
@@ -67,6 +93,16 @@ export default function Login() {
         }
     }
 
+    /**
+     * @swagger
+     * handleCallbackResponse:
+     *   put:
+     *     description: Provides OAuth functionality for a user logging in
+     *     summary: Pushes to authenticate a user based on their Google account.  
+     *     parameters:
+     *      - res: userInfo
+     *        description: contains all information about the user's credentials
+     */
     const handleCallbackResponse = (res) => {
         let userObject = jwt_decode(res.credential);
         setUser(userObject.name);
@@ -87,7 +123,7 @@ export default function Login() {
         });
         google.accounts.id.renderButton(
             document.getElementById("signInDiv"),
-            { theme: "outline", size:"large" }
+            { theme: "outline", size: "large" }
         );
     }, [])
 

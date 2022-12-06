@@ -1,3 +1,16 @@
+/**
+ * @swagger
+ * MenuItem:
+ *   post:
+ *     summary: Takes a name, list of ingredients, and price to format a single menu item in HTML.   
+ *     parameters:
+ *      - name: name
+ *        description: name of menu item
+ *      - name: ingredients
+ *        description: list of ingredients
+ *      - name: price
+ *        descript: prie of menu item
+ */
 export default function MenuItem({ name, ingredients, price }) {
   console.log({ ingredients });
 

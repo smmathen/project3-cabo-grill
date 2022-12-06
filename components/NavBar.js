@@ -3,18 +3,25 @@ import Router, { useRouter } from "next/router";
 import styles from "../styles/NavBar.module.css";
 import Translate from "../pages/translate";
 
+/**
+ * @swagger
+ * NavBar:
+ *   post:
+ *     description: Creates a navbar for all users to see.
+ *     summary: Creates a navbar for all users to see.   
+ */
 export default function NavBar() {
 
     // Home | Menu | Login | Location
     const router = useRouter();
     return (
         <nav>
-            <img className={styles.logo} src="logo.jpeg"/>
+            <img className={styles.logo} src="logo.jpeg" />
             <div className={styles.container}>
                 <Link href="/" className={router.pathname === "/" ? styles.active : styles.navBtn}>
                     HOME
                 </Link>
-                
+
                 <Link href="/menu" className={router.pathname === "/menu" ? styles.active : styles.navBtn}>
                     MENU
                 </Link>

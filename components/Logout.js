@@ -4,7 +4,13 @@ const STORAGE_KEY = "@user";
 const STORAGE_PINKEY = "@pin";
 const ORDER_LIST_KEY = "@orderList";
 const TOTAL_PRICE_KEY = "@totalPrice";
-
+/**
+ * @swagger
+ * Logout:
+ *   put:
+ *     description: Logs out a user currently logged in
+ *     summary: Displays as a logout button for the manager or server
+ */
 export default function Logout() {
     const router = useRouter();
     const logout = () => {

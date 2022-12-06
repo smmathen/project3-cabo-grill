@@ -8,11 +8,25 @@ const TOTAL_PRICE_KEY = "@totalPrice";
 const USER_KEY = "@user";
 const STORAGE_PINKEY = "@pin";
 
+/**
+* @swagger
+* userUI:
+*   post:
+*     description: Shows menu screen for user
+*     summary: Shows menu and allows user to order on a screen
+*/
 const serverui = () => {
   const [menuOrder, setMenuOrder] = useState([]);
   const [orderList, setOrderList] = useState({});
   const [totalPrice, setTotalPrice] = useState(0.0);
 
+  /**
+* @swagger
+* loadOrderList:
+*   get:
+*     description: Gets order from local storage is there
+*     summary: Gest order from local storage if it exists
+*/
   const loadOrderList = () => {
     const s = window.localStorage.getItem(ORDER_LIST_KEY)
     if (s != null) {
@@ -27,6 +41,16 @@ const serverui = () => {
     }
   };
 
+  /**
+* @swagger
+* deleteOrder:
+*   delete:
+*     description: Clears single item from order if user chooses to 
+*     summary: Clears single item order
+*   parameters:
+*      - name: item
+*        description: name of item being removed
+*/
   const deleteOrder = (e) => {
     const key = e.target.classList.value;
     const values = key.split(",");
@@ -45,12 +69,26 @@ const serverui = () => {
     window.location.reload();
   }
 
+  /**
+* @swagger
+* clearList:
+*   put:
+*     description: Clears entire order if user chooses to 
+*     summary: Clears all items off of an order
+*/
   const clearList = () => {
     localStorage.removeItem(TOTAL_PRICE_KEY);
     localStorage.removeItem(ORDER_LIST_KEY);
     window.location.reload();
   };
 
+  /**
+* @swagger
+* submitOrder:
+*   post:
+*     description: submits an order when the user click the submit button
+*     summary: Submits order on user click
+*/
   const submitOrder = async () => {
     const timeStamp = new Date(Date.now()).toISOString();
     let orderArr = [];
@@ -83,6 +121,16 @@ const serverui = () => {
     }
   }
 
+  /**
+* @swagger
+* getMenuOrder:
+*   get:
+*     description: Gets the order items from the database to display to user
+*     summary: Gets the order items from teh database to display to the user
+*   parameters:
+*      - name: item
+*        description: name of item being removed
+*/
   const getMenuOrder = async () => {
     try {
       //   console.log("howdy");

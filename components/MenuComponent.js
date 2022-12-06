@@ -26,10 +26,23 @@ import Seo from "./Seo";
 //     );
 //   });
 // };
-
+/**
+ * @swagger
+ * Menu:
+ *   get:
+ *     description: Gets menu from database and displays it to the user.
+ *     summary: Displays a page for menu items with all of an item's information.
+ */
 const Menu = () => {
   const [menuUser, setMenuUser] = useState([]);
 
+  /**
+ * @swagger
+ * getMenuUser:
+ *   get:
+ *     description: Retrieves the menu json file from the backend website
+ *     summary: Converts file into JSON object to be used for creating the webpage.   
+ */
   const getMenuUser = async () => {
     try {
       //   console.log("howdy");
