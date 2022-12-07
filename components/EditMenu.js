@@ -1,20 +1,37 @@
 //not ready
 import React, { Fragment, useState } from "react";
-
+/**
+ * @swagger
+ * EditMenu:
+ *   put:
+ *     description: Allows a manager to edit the menu items
+ *     summary: Allows a manager to edit the menu items
+ *   parameters:
+ *      - name: menu
+ *        description: Object that holds menu items name, ingredients, quantity, and price
+ */
 const EditMenu = ({ menu }) => {
-//   const [description, setDescription] = useState(todo.description);
-const [name, setName] = useState(menu.name);
-const [ing, setIng] = useState(menu.ingredients);
-const [qua, setQua] = useState(menu.quantity);
-const [pri, setPri] = useState(menu.price);
+  //   const [description, setDescription] = useState(todo.description);
+  const [name, setName] = useState(menu.name);
+  const [ing, setIng] = useState(menu.ingredients);
+  const [qua, setQua] = useState(menu.quantity);
+  const [pri, setPri] = useState(menu.price);
 
   //edit description function
 
+  /** 
+   * @swagger
+ * updateMenu:
+ *   put:
+ *     description: Allows a manager to edit a menu item
+ *     summary: Allows a manager to edit a menu item
+
+ */
   const updateMenu = async e => {
     e.preventDefault();
     try {
-        const body = { name,ing,qua,pri };
-        console.log(menu.name)
+      const body = { name, ing, qua, pri };
+      console.log(menu.name)
       const response = await fetch(
         `https://project3-backend.onrender.com/manMenu/${menu.name}`,
         {
@@ -48,7 +65,7 @@ const [pri, setPri] = useState(menu.price);
               <input
                 type="text"
                 className="form-control"
-                placeholder = {menu.name}
+                placeholder={menu.name}
                 // value={menu.name}
                 onChange={e => setName(e.target.value || menu.name)}
               />
@@ -58,7 +75,7 @@ const [pri, setPri] = useState(menu.price);
               <input
                 type="text"
                 className="form-control"
-                placeholder = {menu.ingredients}
+                placeholder={menu.ingredients}
                 // value={menu.name}
                 onChange={e => setIng(e.target.value || menu.ingredients)}
               />
@@ -68,7 +85,7 @@ const [pri, setPri] = useState(menu.price);
               <input
                 type="text"
                 className="form-control"
-                placeholder = {menu.quantity}
+                placeholder={menu.quantity}
                 // value={menu.name}
                 onChange={e => setQua(e.target.value || menu.quantity)}
               />
@@ -78,7 +95,7 @@ const [pri, setPri] = useState(menu.price);
               <input
                 type="text"
                 className="form-control"
-                placeholder = {menu.price}
+                placeholder={menu.price}
                 // value={menu.name}
                 onChange={e => setPri(e.target.value || menu.price)}
               />
@@ -94,7 +111,7 @@ const [pri, setPri] = useState(menu.price);
                 Edit
               </button>
             </div>
-            
+
           </div>
         </div>
       </div>

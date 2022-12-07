@@ -7,6 +7,13 @@ const STORAGE_PINKEY = "@pin";
 const ORDER_LIST_KEY = "@orderList";
 const TOTAL_PRICE_KEY = "@totalPrice";
 
+/** 
+ * @swagger
+* ManBar:
+*   post:
+*     description: A manager only nav bar
+*     summary: A manager-only nav bar
+*/
 export default function ManBar() {
     const router = useRouter();
     const logout = () => {

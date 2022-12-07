@@ -2,12 +2,27 @@
 import React, { Fragment, useEffect, useState } from "react";
 
 import EditStaff from "./EditStaff";
-
+/** 
+ * @swagger
+* ListStaff:
+*   get:
+*     description: Allows a manager to view the staff
+*     summary: Allows a manager to view the staff
+*/
 const ListStaff = () => {
   const [staff, setStaff] = useState([]);
 
   //delete staff function
-
+  /** 
+   * @swagger
+ * deleteStaff:
+ *   delete:
+ *     description: Allows a manager to delete a staff member
+ *     summary: Allows a manager to delete a staff member
+ *   parameters:
+ *      - name: id
+ *        description: pin value of the staff member to be deleted
+ */
   const deleteStaff = async id => {
     try {
 
@@ -21,7 +36,13 @@ const ListStaff = () => {
       console.error(err.message);
     }
   };
-
+  /** 
+   * @swagger
+ * getStaff:
+ *   get:
+ *     description: Allows a manager to view the staff
+ *     summary: Allows a manager to view the staff
+ */
   const getStaff = async () => {
     try {
 
@@ -63,8 +84,8 @@ const ListStaff = () => {
             <tr key={staff.pin}>
               <td>{staff.name}</td>
               {/* // added this not sure how it works */}
-              <td>{staff.role}</td> 
-              <td>{staff.pin}</td> 
+              <td>{staff.role}</td>
+              <td>{staff.pin}</td>
               <td> <EditStaff staff={staff} /> </td>
               <td>
                 <button

@@ -1,6 +1,14 @@
 //not ready
 import React, { Fragment, useState } from "react";
 
+
+/** 
+ * @swagger
+* InputInvent:
+*   put:
+*     description: Allows a manager to input a new inventory item
+*     summary: Allows a manager to input a new inventory item
+*/
 const InputInven = () => {
   const [name, setName] = useState("");
   const [unit, setUnit] = useState("");
@@ -10,7 +18,13 @@ const InputInven = () => {
 
 
 
-
+  /** 
+   * @swagger
+ * onSubmitForm:
+ *   get:
+ *     description: Gets inventory items on click
+ *     summary: Gets inventory items on click
+ */
   const onSubmitForm = async e => {
     e.preventDefault();
     try {

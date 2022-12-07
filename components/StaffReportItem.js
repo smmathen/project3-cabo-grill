@@ -1,3 +1,15 @@
+/** 
+ * @swagger
+* StaffReportItem:
+*   put:
+*     description: Allows a manager to view the Staff Report
+*     summary: Allows a manager to view the Staff Report
+*   parameters:
+*      - name: name
+*        description: name of staff
+*      - name: count
+*        description: amount of orders places
+*/
 export default function StaffReportItem({ name, count }) {
     return (
         <li>

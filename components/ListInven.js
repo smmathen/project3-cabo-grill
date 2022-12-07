@@ -3,11 +3,28 @@ import React, { Fragment, useEffect, useState } from "react";
 
 import EditInven from "./EditInven";
 
+/** 
+ * @swagger
+* ListInven:
+*   get:
+*     description: Allows a manager to view the inventory
+*     summary: Allows a manager to view the inventory
+*/
 const ListInven = () => {
   const [inven, setInven] = useState([]);
 
   //delete staff function
 
+  /** 
+ * @swagger
+* deleteInven:
+*   delete:
+*     description: Allows a manager to delete an inventory item
+*     summary: Allows a manager to delete an inventory item
+*   parameters:
+*      - name: id
+*        description: Object that holds inventory items name to be deleted
+*/
   const deleteInven = async id => {
     try {
 
@@ -22,6 +39,13 @@ const ListInven = () => {
     }
   };
 
+  /** 
+ * @swagger
+* getInven:
+*   get:
+*     description: Allows a manager to get the inventory
+*     summary: Allows a manager to get the inventory
+*/
   const getInven = async () => {
     try {
 

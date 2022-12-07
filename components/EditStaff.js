@@ -1,19 +1,35 @@
 //not ready
 import React, { Fragment, useState } from "react";
 
+/** 
+* @swagger
+* EditStaff:
+*   put:
+*     description: Allows a manager to edit the staff
+*     summary: Allows a manager to edit the staff
+*   parameters:
+*      - name: inven
+*        description: Object that holds staff's name, role, and pin
+*/
 const EditStaff = ({ staff }) => {
-//   const [description, setDescription] = useState(todo.description);
+  //   const [description, setDescription] = useState(todo.description);
   const [name, setName] = useState(staff.name);
   const [role, setRole] = useState(staff.role);
   const [pin, setPin] = useState(staff.pin);
 
   //edit description function
 
-
+  /** 
+  * @swagger
+ * updateStaff:
+ *   put:
+ *     description: Allows a manager to edit a staff member
+ *     summary: Allows a manager to edit a staff member
+ */
   const updateStaff = async e => {
     e.preventDefault();
     try {
-        const body = { name,role,pin };
+      const body = { name, role, pin };
       const response = await fetch(
 
         `https://project3-backend.onrender.com/manStaff/${staff.pin}`,
@@ -63,7 +79,7 @@ const EditStaff = ({ staff }) => {
               <input
                 type="text"
                 className="form-control"
-                placeholder = {staff.name}
+                placeholder={staff.name}
                 // value={staff.name}
                 onChange={e => setName(e.target.value)}
               />
@@ -88,7 +104,7 @@ const EditStaff = ({ staff }) => {
               <input
                 type="text"
                 className="form-control"
-                placeholder = {staff.role}
+                placeholder={staff.role}
                 // value={staff.name}
                 onChange={e => setRole(e.target.value)}
               />
@@ -112,7 +128,7 @@ const EditStaff = ({ staff }) => {
               <input
                 type="text"
                 className="form-control"
-                placeholder = {staff.pin}
+                placeholder={staff.pin}
                 // value={staff.name}
                 onChange={e => setPin(e.target.value)}
               />
@@ -128,7 +144,7 @@ const EditStaff = ({ staff }) => {
                 Edit
               </button>
             </div>
-            
+
 
           </div>
         </div>

@@ -3,11 +3,27 @@ import React, { Fragment, useEffect, useState } from "react";
 
 import EditMenu from "./EditMenu";
 
+/** 
+ * @swagger
+* ListMenu:
+*   get:
+*     description: Allows a manager to view the menu
+*     summary: Allows a manager to viwe the menu
+*/
 const ListMenu = () => {
   const [menu, setMenu] = useState([]);
 
   //delete menu function
-
+  /** 
+   * @swagger
+ * deleteMenu:
+ *   delete:
+ *     description: Allows a manager to delete a menu item from inventory
+ *     summary: Allows a manager to delete a menu item from the inventory
+ *   parameters:
+ *      - name: id
+ *        description: name of item to be deleted
+ */
   const deleteMenu = async id => {
     try {
       const deleteMenu = await fetch(`https://project3-backend.onrender.com/manMenu/${id}`, {
@@ -20,6 +36,13 @@ const ListMenu = () => {
     }
   };
 
+  /** 
+ * @swagger
+* getMenu:
+*   get:
+*     description: Allows a manager to view the menu
+*     summary: Allows a manager to view the menu
+*/
   const getMenu = async () => {
     try {
       const response = await fetch("https://project3-backend.onrender.com/manMenu");
@@ -61,9 +84,9 @@ const ListMenu = () => {
             <tr key={menu.name}>
               <td>{menu.name}</td>
               {/* // added this not sure how it works */}
-              <td>{menu.ingredients.join(", ")}</td> 
-              <td>{menu.quantity.join(", ")}</td> 
-              <td>{menu.price}</td> 
+              <td>{menu.ingredients.join(", ")}</td>
+              <td>{menu.quantity.join(", ")}</td>
+              <td>{menu.price}</td>
               <td> <EditMenu menu={menu} /> </td>
               <td>
                 <button
