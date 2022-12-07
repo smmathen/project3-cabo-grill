@@ -119,7 +119,7 @@ const serverui = () => {
           </div>
           <div className="d-flex flex-row align-items-end justify-content-between">
             <div>Price: ${totalPrice}</div>
-            <button className="btn bg-danger bg-gradient text-white">Order</button>
+            <button className="btn bg-danger bg-gradient text-white " onClick={submitOrder}>Order</button>
             <button className="btn bg-danger bg-gradient text-white" onClick={clearList}>Clear All</button>
           </div>
           <Logout />

@@ -19,7 +19,7 @@ export default function Home() {
       <Seo title="Home" />
       <div className="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
         <div className={styles.imageOverlay}>
-          <img src='homeBg.webp' />
+          <img src='homeBg.webp' alt='different type of logo for cabo' />
           <h1 className={imageContainerTextClass}>Tacos & Seafood</h1>
         </div>
         <h2 className="lead fw-normal">Cause we make the best mexican food in town, that's why!</h2>
