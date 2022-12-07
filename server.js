@@ -61,6 +61,33 @@ app.get("/restockReport", async (req, res) => {
 });
 
 
+app.get("/excessReport", async (req, res) => {
+  const { time } = req.body;
+  try {
+    const report = await pool.query("Select * from orders where tstamp >= $1;",
+    [time]
+    );
+
+    if (report.rowCount == 0) {
+      const msg = {
+        success: false,
+        list: [null]
+      }
+      res.status(500).send(msg);
+
+    } else {
+      const msg = {
+        success: true,
+        list: employee.rows
+      }
+      res.status(200).send(msg);
+    }
+  } catch (err) {
+    console.log(err.message);
+  }
+})
+
+
 
 
 /**
@@ -121,6 +148,139 @@ app.get("/menuOrder", async (req, res) => {
     console.log(err.message);
   }
 })
+//Inven members ROUTES
+
+//create a inven member
+//this one might work but probally doesn't
+/**
+ * @swagger
+ * /manInven:
+ *   post:
+ *     summary: Inserts a new employee into the database.
+ *     parameters:
+ *      - name: req
+ *        description: Request body with information from manager's input, contains the name, role, and pin of new employee.
+ *      - name: res
+ *        description: Response body with reponse back from database after input is successful.
+ *      
+ */
+ app.post("/manInven", async (req, res) => {
+  try {
+    console.log(req.body);
+    const { name, unit, quantity, low, price } = req.body;
+    const newInven = await pool.query(
+      "INSERT INTO inventory(name,unit,quantity,low,price) VALUES ($1,$2,$3,$4,$5) Returning * ;", [name, unit, quantity, low, price]
+    );
+    console.log(req.body);
+    res.json(newInven.rows[0]);
+  } catch (err) {
+    console.log(err.message);
+  }
+})
+
+//delete a inven member
+/**
+ * @swagger
+ * /manInven/:id:
+ *   delete:
+ *     summary: Deletes an employee from the database after user is inputted by manager.
+ *     parameters:
+ *      - name: req
+ *        description: Request body with information from user's input
+ *      - name: res
+ *        description: Response body with string as a JSON that confirms that the employee has been removed.
+ *      
+ */
+app.delete("/manInven/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleteInven = await pool.query(
+      "DELETE FROM inventory where name = $1;", [id]
+    );
+    res.json("Inven Member Removed");
+  } catch (err) {
+    console.log(err.message);
+  }
+})
+
+
+//get all Inven
+/**
+ * @swagger
+ * /manInven:
+ *   get:
+ *     summary: Gets all inven members from the database.
+ *     parameters:
+ *      - name: res
+ *        description: Response body with all inven members returned as an Object
+ *      
+ */
+app.get("/manInven", async (req, res) => {
+  try {
+
+    const allInven = await pool.query(
+      "SELECT * FROM inventory;"
+    );
+    console.log(req.body);
+    res.json(allInven.rows);
+  } catch (err) {
+    console.log(err.message);
+  }
+})
+
+//get 1 inven
+/**
+ * @swagger
+ * /manInven/:id:
+ *   get:
+ *     summary: Queries database for a single employee based on an input from the user.
+ *     parameters:
+ *      - name: req
+ *        description: Request body with the pin number of the employee being searched for
+ *      - name: res
+ *        description: Response body with information from the employee being returned
+ *      
+ */
+app.get("/manInven/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    console.log(req.body);
+    const allInven = await pool.query(
+      "SELECT * FROM inventory where name  = $1;", [id]
+    );
+    res.json(allInven.rows[0]);
+  } catch (err) {
+    console.log(err.message);
+  }
+})
+
+//TODO update 1 inven
+/**
+ * @swagger
+ * /manInven/:id:
+ *   put:
+ *     summary: Updates employee information based on if the manager chooses to edit one.
+ *     parameters:
+ *      - name: req
+ *        description: Request body with new name, role, and pin for set manager. Also contains previous pin to search for user.
+ *      - name: res
+ *        description: Response if inven member was successfully updated
+ *      
+ */
+app.put("/manInven/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { name, unit, quantity, low, price } = req.body;
+    const updateInven = await pool.query(
+      "UPDATE inventory SET name=$1, unit = $2, quantity = $3, low = $4, price = $5 WHERE name = $6;", [name, unit, quantity, low, price, id]
+    );
+    res.json("Inven member was updated");
+  } catch (err) {
+    console.log(err.message);
+  }
+})
+
+
 //Staff members ROUTES
 
 //create a staff member
