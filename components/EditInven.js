@@ -83,7 +83,7 @@ const EditInven = ({ inven }) => {
               <input
                 type="text"
                 className="form-control"
-                placeholder = {low.quantity}
+                placeholder = {inven.low}
                 // value={inven.unit}
                 onChange={e => setLow(e.target.value)}
               />
@@ -93,7 +93,7 @@ const EditInven = ({ inven }) => {
               <input
                 type="text"
                 className="form-control"
-                placeholder = {price.quantity}
+                placeholder = {inven.price}
                 // value={inven.unit}
                 onChange={e => setPrice(e.target.value)}
               />

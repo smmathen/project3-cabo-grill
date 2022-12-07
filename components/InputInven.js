@@ -41,28 +41,28 @@ const InputInven = () => {
         <input
           type="text"
           className="form-control"
-          value={role}
+          value={unit}
           placeholder="Set Unit"
           onChange={e => setUnit(e.target.value)}
         />
         <input
           type="text"
           className="form-control"
-          value={pin}
+          value={quantity}
           placeholder="Set Quantity"
           onChange={e => setQuantity(e.target.value)}
         />
         <input
           type="text"
           className="form-control"
-          value={pin}
+          value={low}
           placeholder="Set Low"
           onChange={e => setLow(e.target.value)}
         />
         <input
           type="text"
           className="form-control"
-          value={pin}
+          value={price}
           placeholder="Set Price"
           onChange={e => setPrice(e.target.value)}
         />

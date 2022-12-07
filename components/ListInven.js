@@ -11,7 +11,7 @@ const ListInven = () => {
   const deleteInven = async id => {
     try {
 
-      const deleteInven = await fetch(`https://project3-backend.onrender.com/maninventory/${name}`, {
+      const deleteInven = await fetch(`https://project3-backend.onrender.com/manInven/${inven.name}`, {
 
         method: "DELETE"
       });
@@ -25,7 +25,7 @@ const ListInven = () => {
   const getInven = async () => {
     try {
 
-      const response = await fetch("https://project3-backend.onrender.com/maninventory");
+      const response = await fetch("https://project3-backend.onrender.com/manInven");
 
       const jsonData = await response.json();
 
@@ -50,7 +50,8 @@ const ListInven = () => {
             <th>Name</th>
             <th>Unit</th>
             <th>Quantity</th>
-            <th>Low Price</th>
+            <th>Low</th>
+            <th>Price</th>
           </tr>
         </thead>
         <tbody>
@@ -63,8 +64,10 @@ const ListInven = () => {
             <tr key={inven.name}>
               <td>{inven.name}</td>
               {/* // added this not sure how it works */}
-              <td>{inven.unit}</td> 
-              <td>{inven.quantity}</td> 
+              <td>{inven.unit}</td>
+              <td>{inven.low}</td>
+              <td>{inven.quantity}</td>
+              <td>{inven.price}</td>
               <td> <EditInven inven={inven} /> </td>
               <td>
                 <button

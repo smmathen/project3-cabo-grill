@@ -16,7 +16,7 @@ export default function NavBar() {
     const router = useRouter();
     return (
         <nav>
-            <img className={styles.logo} src="logo.jpeg" />
+            <img className={styles.logo} src="logo.jpeg" alt="logo for cabo" />
             <div className={styles.container}>
                 <Link href="/" className={router.pathname === "/" ? styles.active : styles.navBtn}>
                     HOME
