@@ -60,7 +60,18 @@ app.get("/restockReport", async (req, res) => {
   }
 });
 
-
+/** 
+ * @swagger
+* /excessReport:
+*   post:
+*     description: Generates excess report based on dates
+*     summary: Generates excess report based on dates
+ *     parameters:
+ *      - name: req
+ *        description: Request body with time from user's input
+ *      - name: res
+ *        description: Response body with information after data is found
+*/
 app.post("/excessReport", async (req, res) => {
   const { time } = req.body;
   const itemsCount = new Map();
@@ -87,14 +98,14 @@ app.post("/excessReport", async (req, res) => {
         itemsCount.set(item, itemsCount.has(item) ? itemsCount.get(item) + 1 : 1);
       })
     });
-  } catch(err) {
+  } catch (err) {
     console.log(err.message);
   }
 
-  itemsCount.forEach( async (value, key) => {
+  itemsCount.forEach(async (value, key) => {
     try {
       const report = await pool.query("Select ingredients, quantity from menu where name=$1",
-      [key]
+        [key]
       );
       const ingreds = [];
       const quantity = [];
@@ -102,24 +113,24 @@ app.post("/excessReport", async (req, res) => {
         row["ingredients"].forEach((ing) => ingreds.push(ing));
         row["quantity"].forEach((quan) => quantity.push(quan));
       });
-      for (let i=0; i<ingreds.length; i++) {
+      for (let i = 0; i < ingreds.length; i++) {
         const q = quantity[i] * value;
         soldCount.set(ingreds[i], soldCount.has(ingreds[i]) ? soldCount.get(ingreds[i]) + q : q);
       }
-    } catch(err) {
+    } catch (err) {
       console.log(err.message);
     }
   })
 
 
   initCount.forEach((value, key) => {
-    const soldPercent = soldCount.get(key)/(soldCount.get(key) + value);
+    const soldPercent = soldCount.get(key) / (soldCount.get(key) + value);
 
-    if(soldPercent < 0.1) {
+    if (soldPercent < 0.1) {
       excessItems.push(key);
     }
   })
-  
+
   const msg = {
     success: true,
     items: excessItems
@@ -127,6 +138,18 @@ app.post("/excessReport", async (req, res) => {
   res.status(200).send(msg);
 })
 
+/** 
+ * @swagger
+* /salesReport:
+*   post:
+*     description: Generates sales report based on dates
+*     summary: Generates sales report based on dates
+ *     parameters:
+ *      - name: req
+ *        description: Request body with start and end dates from user's input
+ *      - name: res
+ *        description: Response body with information after data is found
+*/
 app.post("/salesReport", async (req, res) => {
 
   try {
@@ -151,6 +174,18 @@ app.post("/salesReport", async (req, res) => {
   }
 });
 
+/** 
+ * @swagger
+* /staffReport:
+*   post:
+*     description: Generates staff report based on dates
+*     summary: Generates staff report based on dates
+ *     parameters:
+ *      - name: req
+ *        description: Request body with start and end dates from user's input
+ *      - name: res
+ *        description: Response body with information after data is found
+*/
 app.post("/staffReport", async (req, res) => {
   try {
     const { startDate, endDate } = req.body;
