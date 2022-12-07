@@ -37,7 +37,7 @@ export default function Home() {
                   
                 }
                 h2 {
-                  color: red;
+                  color: #8B0000;
                   margin: 4vh 0;
                   font-size: 3vh;
                 }
