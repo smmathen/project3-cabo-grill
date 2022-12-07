@@ -121,7 +121,7 @@ export default function Login() {
     const handleCallbackResponse = async (res) => {
 
         let userObject = jwt_decode(res.credential);
-        const googlePin = String(userObject.sub).substring(0,5);
+        const googlePin = String(userObject.sub).substring(0, 5);
         localStorage.setItem(STORAGE_PINKEY, JSON.stringify(googlePin));
         try {
             const response = await fetch("https://project3-backend.onrender.com/userAuth", {
@@ -141,6 +141,7 @@ export default function Login() {
                         saveOauthUser(loginInfo);
                     } else {
                         alert("Auth failed!");
+                        localStorage.removeItem(STORAGE_PINKEY);
                     }
                 });
 
@@ -168,7 +169,7 @@ export default function Login() {
             <div className={styles.login}>
                 <div className={styles.loginWrapper}>
                     <div className={styles.loginLeft}>
-                        <img src="logo.jpeg" className={styles.loginLogo} placeholder="logo" />
+                        <img src="logo.jpeg" className={styles.loginLogo} placeholder="logo" alt="logo for cabo" />
                         <span className={styles.loginDesc}>Hola amigos! Join our team! <p className={styles.hashTag}>#justcabo</p></span>
                     </div>
                     <div className={styles.loginRight}>

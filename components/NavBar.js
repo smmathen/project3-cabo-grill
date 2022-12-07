@@ -33,9 +33,6 @@ export default function NavBar() {
                 <Link href="/auth" className={router.pathname === "/auth" ? styles.active : styles.navBtn}>
                     EMPLOYEE
                 </Link>
-                <Link href="/manager" className={router.pathname === "/manager" ? styles.active : styles.navBtn}>
-                    MANAGER
-                </Link>
 
                 <Translate />
             </div>
