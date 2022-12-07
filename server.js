@@ -61,30 +61,70 @@ app.get("/restockReport", async (req, res) => {
 });
 
 
-app.get("/excessReport", async (req, res) => {
+app.post("/excessReport", async (req, res) => {
   const { time } = req.body;
+  const itemsCount = new Map();
+  const soldCount = new Map();
+  const initCount = new Map();
+  const excessItems = [];
+  try {
+    const report = await pool.query("Select name, quantity from inventory;"
+    );
+    report.rows.forEach((row) => {
+      soldCount.set(row["name"], 0.0);
+      initCount.set(row["name"], row["quantity"]);
+    })
+  } catch (err) {
+    console.log(err.message);
+  }
+
   try {
     const report = await pool.query("Select * from orders where tstamp >= $1;",
       [time]
     );
-
-    if (report.rowCount == 0) {
-      const msg = {
-        success: false,
-        list: [null]
-      }
-      res.status(500).send(msg);
-
-    } else {
-      const msg = {
-        success: true,
-        list: employee.rows
-      }
-      res.status(200).send(msg);
-    }
-  } catch (err) {
+    report.rows.forEach((row) => {
+      row["items"].forEach((item) => {
+        itemsCount.set(item, itemsCount.has(item) ? itemsCount.get(item) + 1 : 1);
+      })
+    });
+  } catch(err) {
     console.log(err.message);
   }
+
+  itemsCount.forEach( async (value, key) => {
+    try {
+      const report = await pool.query("Select ingredients, quantity from menu where name=$1",
+      [key]
+      );
+      const ingreds = [];
+      const quantity = [];
+      report.rows.forEach((row) => {
+        row["ingredients"].forEach((ing) => ingreds.push(ing));
+        row["quantity"].forEach((quan) => quantity.push(quan));
+      });
+      for (let i=0; i<ingreds.length; i++) {
+        const q = quantity[i] * value;
+        soldCount.set(ingreds[i], soldCount.has(ingreds[i]) ? soldCount.get(ingreds[i]) + q : q);
+      }
+    } catch(err) {
+      console.log(err.message);
+    }
+  })
+
+
+  initCount.forEach((value, key) => {
+    const soldPercent = soldCount.get(key)/(soldCount.get(key) + value);
+
+    if(soldPercent < 0.1) {
+      excessItems.push(key);
+    }
+  })
+  
+  const msg = {
+    success: true,
+    items: excessItems
+  }
+  res.status(200).send(msg);
 })
 
 app.post("/salesReport", async (req, res) => {
