@@ -16,13 +16,13 @@ const SalesReport = () => {
     const getSalesReport = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`http://localhost:3001/salesReport`, {
+            const response = await fetch("https://project3-backend.onrender.com/salesReport", {
                 method: "POST",
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({"startDate": startDate, "endDate": endDate})
+                body: JSON.stringify({ "startDate": startDate, "endDate": endDate })
 
             })
                 .then(response => response.json())

@@ -62,7 +62,7 @@ const serverui = () => {
     const orderTaker = parseInt(JSON.parse(localStorage.getItem(STORAGE_PINKEY)));
 
     try {
-      const response = await fetch("http://localhost:3001/submitOrder", {
+      const response = await fetch("http://project3-backend.onrender.com/submitOrder", {
         method: "POST",
         headers: {
           'Accept': 'application/json',
@@ -87,7 +87,7 @@ const serverui = () => {
   const getMenuOrder = async () => {
     try {
       //   console.log("howdy");
-      const response = await fetch("http://localhost:3001/menuOrder");
+      const response = await fetch("http://project3-backend.onrender.com/menuOrder");
       const jsonData = await response.json();
       setMenuOrder(jsonData);
     } catch (error) {
