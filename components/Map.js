@@ -24,6 +24,7 @@ const Map = () => {
         padding: 50
       }}>
 
+
         <form action="//www.google.com/maps" id="">
           <input aria-label="Your Location" id="" name="saddr" placeholder="FROM" type={"text"} ></input>
           <input aria-label="Our Location" id="" name="daddr" placeholder="TO" type={"hidden"} value={'Memorial+Student+Center,+275+Joe+Routt+Blvd,+College+Station,+TX+77840'}></input>

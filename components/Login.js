@@ -72,6 +72,20 @@ export default function Login() {
         setAuth(true);
     }
 
+
+    /**
+     * @swagger
+     * saveOauthUser:
+     *   put:
+     *     description: stores users information in local storage once authenticated
+     *     summary: stores users information in local storage once authenticated
+     */
+    const saveOauthUser = (userInfo) => {
+        const s = JSON.stringify(userInfo);
+        localStorage.setItem(STORAGE_KEY, s);
+        setAuth(true);
+    }
+
     //get all Staff
     /**
      * @swagger
@@ -93,6 +107,7 @@ export default function Login() {
         }
     }
 
+
     /**
      * @swagger
      * handleCallbackResponse:
@@ -103,16 +118,36 @@ export default function Login() {
      *      - res: userInfo
      *        description: contains all information about the user's credentials
      */
-    const handleCallbackResponse = (res) => {
+    const handleCallbackResponse = async (res) => {
+
         let userObject = jwt_decode(res.credential);
-        setUser(userObject.name);
-        setRole("google-account");
-        setPinNum("99999");
-        setAuth(true);
-        const loginInfo = { "name": userObject.name, "role": "google-account" };
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(loginInfo));
-        localStorage.setItem(STORAGE_PINKEY, JSON.stringify("99999"));
-        router.push("/auth");
+        const googlePin = String(userObject.sub).substring(0,5);
+        localStorage.setItem(STORAGE_PINKEY, JSON.stringify(googlePin));
+        try {
+            const response = await fetch("https://project3-backend.onrender.com/userAuth", {
+                method: "POST",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ "pin": googlePin })
+            })
+                .then(response => response.json())
+                .then(response => {
+                    if (response["success"]) {
+                        setUser(response["employee_info"][0]["name"]);
+                        setRole(response["employee_info"][0]["role"]);
+                        const loginInfo = { "name": response["employee_info"][0]["name"], "role": response["employee_info"][0]["role"] };
+                        saveOauthUser(loginInfo);
+                    } else {
+                        alert("Auth failed!");
+                    }
+                });
+
+            router.push("/auth");
+        } catch (error) {
+            console.log(error.message);
+        }
     }
 
     useEffect(() => {
