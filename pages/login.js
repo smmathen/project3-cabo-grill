@@ -2,6 +2,13 @@ import { useEffect, useState } from "react";
 import Seo from "../components/Seo";
 import styles from "../styles/login.module.css";
 
+/** 
+ * @swagger
+* Login:
+*   post:
+*     description: Allows an authorized user to log in
+*     summary: Allows an authorized user to log in
+*/
 export default function Login() {
     const [user, setUser] = useState("");
     const [auth, setAuth] = useState(false);

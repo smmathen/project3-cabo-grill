@@ -4,7 +4,13 @@ import StaffReportItem from "../components/StaffReportItem";
 import Seo from "../components/Seo";
 
 
-
+/** 
+ * @swagger
+* StaffReport:
+*   get:
+*     description: Displays the staff report to manager
+*     summary: Displays the staff report to the manager
+*/
 const StaffReport = () => {
     const [startDate, setStartDate] = useState();
     const [endDate, setEndDate] = useState();
@@ -14,7 +20,13 @@ const StaffReport = () => {
     const [loaded, setLoaded] = useState(false);
     const [staff, setStaff] = useState([])
 
-
+    /** 
+     * @swagger
+    * getStaffReport:
+    *   get:
+    *     description: Displays the staff report to manager
+    *     summary: Displays the staff report to the manager
+    */
     const getStaffReport = async (e) => {
         e.preventDefault();
         try {

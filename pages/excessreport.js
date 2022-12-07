@@ -3,6 +3,13 @@ import { useState } from "react";
 import ManBar from "../components/ManBar";
 import Seo from "../components/Seo";
 
+/** 
+ * @swagger
+* excessreport:
+*   get:
+*     description: shows page for excess report
+*     summary: Shows page for excess report
+*/
 export default function excessreport() {
     const [time, setTime] = useState();
     const [items, setItems] = useState([]);

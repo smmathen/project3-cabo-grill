@@ -4,7 +4,13 @@ import SalesReportItem from "../components/SalesReportItem";
 import Seo from "../components/Seo";
 
 
-
+/** 
+ * @swagger
+* SalesReport:
+*   get:
+*     description: Displays the sales report to manager
+*     summary: Displays the sales report to the manager
+*/
 const SalesReport = () => {
     const [report, setReport] = useState([]);
     const [count_pair, setCountPair] = useState([]);

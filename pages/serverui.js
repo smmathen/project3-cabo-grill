@@ -8,12 +8,25 @@ const ORDER_LIST_KEY = "@orderList";
 const TOTAL_PRICE_KEY = "@totalPrice";
 const USER_KEY = "@user";
 const STORAGE_PINKEY = "@pin";
-
+/** 
+ * @swagger
+* serverui:
+*   get:
+*     description: Displays the order screen to a server
+*     summary: Displays the order screen to a server
+*/
 const serverui = () => {
   const [menuOrder, setMenuOrder] = useState([]);
   const [orderList, setOrderList] = useState({});
   const [totalPrice, setTotalPrice] = useState(0.0);
 
+  /** 
+ * @swagger
+* loadOrderList:
+*   get:
+*     description: loads current order to the server
+*     summary: loads current order to server from local storage
+*/
   const loadOrderList = () => {
     const s = window.localStorage.getItem(ORDER_LIST_KEY)
     if (s != null) {
@@ -28,6 +41,13 @@ const serverui = () => {
     }
   };
 
+  /** 
+ * @swagger
+* deleteOrder:
+*   delete:
+*     description: Deletes order if indicated
+*     summary: Deletes item from order if indicated
+*/
   const deleteOrder = (e) => {
     const key = e.target.classList.value;
     const values = key.split(",");
@@ -46,12 +66,26 @@ const serverui = () => {
     window.location.reload();
   }
 
+  /** 
+ * @swagger
+* clearList:
+*   put:
+*     description: Clears the entire order list on click
+*     summary: Clears the entire order list on click
+*/
   const clearList = () => {
     localStorage.removeItem(TOTAL_PRICE_KEY);
     localStorage.removeItem(ORDER_LIST_KEY);
     window.location.reload();
   };
 
+  /** 
+ * @swagger
+* submitOrder:
+*   post:
+*     description: posts order to the database
+*     summary: posts the order to the database
+*/
   const submitOrder = async () => {
     const timeStamp = new Date(Date.now()).toISOString();
     let orderArr = [];
@@ -84,6 +118,13 @@ const serverui = () => {
     }
   }
 
+  /** 
+ * @swagger
+* getMenuOrder:
+*   get:
+*     description: Displays the menu order to the server
+*     summary: Displays the menu order to the server
+*/
   const getMenuOrder = async () => {
     try {
       //   console.log("howdy");

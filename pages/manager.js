@@ -6,13 +6,19 @@ import InputStaff from '../components/InputStaff'
 import Seo from '../components/Seo'
 
 
-
+/** 
+ * @swagger
+* manager:
+*   pgetut:
+*     description: Welcome page for manager
+*     summary: Welcome page for manager
+*/
 export default function manager() {
     const router = useRouter();
     return (
         <div>
             <Seo title="Home" />
-            <ManBar/>
+            <ManBar />
             Welcome Manager
 
         </div>
