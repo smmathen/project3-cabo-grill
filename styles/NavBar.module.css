@@ -3,12 +3,12 @@
     justify-content: space-around;
     margin: 0 15vw;
     margin-top: 4vh;
-    font-size: 2vh;
+    font-size: 18px;
 }
 
 .navBtn {
     text-decoration: none;
-    color: #9c1717;
+    color: #ad1414;
 }
 
 .navBtn:hover {

@@ -34,7 +34,7 @@
 }
 
 .hashTag {
-    color: #8B0000;
+    color: #ad1414;
 }
 
 .loginBox {
@@ -62,7 +62,7 @@
     margin-top: 5vh;
     border-radius: 10px;
     border: none;
-    background-color: red;
+    background-color: #ad1414;
     color: white;
     font-size: 20px;
     font-weight: 500;
@@ -70,5 +70,6 @@
 }
 
 .welcomeText {
-    font-size: 3vh;
+    font-size: 20px;
+    font-weight: 500;
 }
